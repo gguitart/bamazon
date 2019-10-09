@@ -8,14 +8,15 @@ var connection = mysql.createConnection({
 });
 connection.connect(function (err) {
     if (err) throw err;
-    console.log(`wooohooo im connected`);
+    // console.log(`wooohooo im connected`);
     showAllgoods();
    
 });
 function showAllgoods() {
-    console.log("first function ran");
+    // console.log("first function ran");
     connection.query(`Select * from products `, function(error, results){
         if(error) throw error;
+        console.log("The table below shows the products, stock quantity, item IDs, and price of what we are selling:");
         console.table(results);
         idPrompt(results);
     })
@@ -23,8 +24,8 @@ function showAllgoods() {
 };
 
 function idPrompt(databaseData) {
-    console.log(databaseData);
-    console.log("idPrompt ran!")
+    // console.log(databaseData);
+    // console.log("idPrompt ran!")
     inquirer.prompt([
         {
             type: "text",
